@@ -1,0 +1,18 @@
+{
+  "name": "commercemanagementv1",
+  "version": "1.0.0",
+  "description": "Management application for the Firestone Department of Commerce",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Blaadam",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.5.1",
+    "discord.js": "^14.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.51.0"
+  }
+}
