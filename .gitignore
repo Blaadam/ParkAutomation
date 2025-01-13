@@ -1,0 +1,4 @@
+# Lets not make everything on show :)
+node_modules
+# Lets hide our secrets
+config.json
