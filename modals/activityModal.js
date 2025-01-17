@@ -1,5 +1,4 @@
-const { appscriptUrl } = require("../config.json");
-console.log(appscriptUrl)
+const { appscriptUrl } = require("../config.json");\
 
 const embedInfo = {
   Color: 2177563,
