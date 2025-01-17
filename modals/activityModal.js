@@ -1,3 +1,6 @@
+const { appscriptUrl } = require("../config.json");
+console.log(appscriptUrl)
+
 const embedInfo = {
   Color: 2177563,
   Title: "New Activity Submission",
@@ -124,7 +127,7 @@ async function updateStats() {
 
   var Response = await axios({
     method: "post",
-    url: "https://script.google.com/macros/s/AKfycbyQR11JEA2s7OT9hdnzaEi8Tvh2TU79XnQ21muQXpb0MAm2fPaOWR6FqLJ1I9PW333x/exec",
+    url: appscriptUrl,
     params: {
       taskType: "Bot",
       botCount: newCount,
@@ -135,7 +138,7 @@ async function updateStats() {
 async function getSheetsTask() {
   var Response = await axios({
     method: "get",
-    url: "https://script.google.com/macros/s/AKfycbyQR11JEA2s7OT9hdnzaEi8Tvh2TU79XnQ21muQXpb0MAm2fPaOWR6FqLJ1I9PW333x/exec",
+    url: appscriptUrl,
   });
 
   var tasks = Response.data; // JSON.parse(Response.data);

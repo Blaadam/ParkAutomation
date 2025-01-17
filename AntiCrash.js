@@ -1,13 +1,15 @@
 const { EmbedBuilder, WebhookClient } = require("discord.js");
 const { inspect } = require("util");
+const { crashWebhook } = require("./config.json");
+
 const webhook = new WebhookClient({
-    url: "https://discord.com/api/webhooks/1150412404744798340/xKgAelB34waLZACnv3_7WV9hgUg9tI21Q0iiacSA-OUDPvrmYh-UW79KkfnXloUwcmQj"
+    url: crashWebhook
 });
 
 module.exports = (client) => {
     const embed = new EmbedBuilder()
         .setColor("Red");
-    
+
     client.on("error", (err) => {
         console.log(err);
 
@@ -34,7 +36,7 @@ module.exports = (client) => {
 
         return webhook.send({ embeds: [embed] });
     });
-    
+
     process.on("uncaughtException", (err, origin) => {
         console.log(err, "\n", origin);
 
@@ -49,7 +51,7 @@ module.exports = (client) => {
 
         return webhook.send({ embeds: [embed] });
     });
-    
+
     process.on("uncaughtExceptionMonitor", (err, origin) => {
         console.log(err, "\n", origin);
 
@@ -61,10 +63,10 @@ module.exports = (client) => {
                 { name: "Origin", value: `\`\`\`${inspect(origin, { depth: 0 }).slice(0, 1000)}\`\`\`` }
             )
             .setTimestamp();
-    
+
         return webhook.send({ embeds: [embed] });
     });
-    
+
     process.on("warning", (warn) => {
         console.log(warn);
 
